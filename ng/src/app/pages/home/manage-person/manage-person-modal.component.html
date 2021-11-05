@@ -1,0 +1,87 @@
+<div [nbSpinner]="loading" nbSpinnerStatus="info">
+  <form [formGroup]="personForm" (ngSubmit)="onSavePerson()">
+    <nb-card class="dialog-card">
+      <nb-card-header>{{modalHeader}}
+        <button type="button" class="btn-close float-end" aria-label="Close" (click)="onCancelModal()"></button>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="row g-2">
+          <!-- Name  -->
+          <div class="col-md-6">
+            <label for="name" class="req form-label" aria-required="true">Name</label>
+            <input type="text" nbInput fullWidth class="form-control" id="name" formControlName="name" #firstInput
+              aria-describedby="name-error" [status]="submitted && f.name.errors ? 'danger' : 'basic'" />
+            <div *ngIf="submitted && f.name.errors" class="error-feedback" id="name-error">
+              <div *ngIf="f.name.errors?.required">Please provide your name</div>
+              <div *ngIf="f.name.errors?.maxlength">The max length for Name is 100</div>
+            </div>
+          </div>          
+          <!-- Age -->
+          <div class="col-md-6">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" (keypress)="onKeyPress($event)" (paste)="onKeyPress($event)"
+              class="form-control" nbInput fullWidth formControlName="age"
+              aria-describedby="age-error" [status]="submitted && f.age.errors ? 'danger' : 'basic'" >
+              <div *ngIf="submitted && f.age.errors" class="error-feedback" id="age-error">
+                <div *ngIf="f.age.errors?.min">Please enter an age greater than zero</div>
+                <div *ngIf="f.age.errors?.max">Please enter an age less than 111</div>
+              </div>
+          </div>          
+          <!-- Favorite Season -->
+          <div class="col-12">
+            <label for="season" class="req form-label" aria-required="true">What is your favorite season?</label>
+            <ng-select [items]="seasons" bindLabel="label" bindValue="value" formControlName="season"
+              id="season" appendTo="#season" [clearable]="false" [class.ng-touched]="requiredSelect">
+            </ng-select>
+            <div *ngIf="submitted && f.season.errors" class="error-feedback" id="season-error">
+              <div *ngIf="f.season.errors?.required">Please choose a favorite season</div>
+            </div>
+          </div>
+          <!-- Why -->
+          <div class="col-12">
+            <label for="reason" class="form-label" aria-required="true">Why?</label>
+            <textarea nbInput fullWidth class="form-control" id="reason" formControlName="reason"
+              rows="4"></textarea>
+            <div *ngIf="submitted && f.reason.errors" class="error-feedback" id="reason-error">
+              <div *ngIf="f.reason.errors?.maxlength">The max length for your reason is 500</div>
+            </div>
+          </div>
+          <!-- Where do you feel most at home? -->
+          <div class="col-12">
+            <label for="location" class="req form-label" aria-required="true">
+              Where would you feel most at home?
+            </label>
+            <ng-select [items]="locations" bindLabel="label" bindValue="value" formControlName="location"
+              id="location" appendTo="#location" [clearable]="false" [class.ng-touched]="requiredSelect">
+            </ng-select>
+            <div *ngIf="submitted && f.location.errors" class="error-feedback" id="location-error">
+              <div *ngIf="f.location.errors?.required">Please choose a favorite location</div>
+            </div>
+          </div>
+          <!-- Which of the following outdoor exercising activity do you enjoy the most? -->
+          <div class="col-12">
+            <label for="activity" class="req form-label" aria-required="true">
+              Which of the following outdoor exercising activity do you enjoy the most?
+            </label>
+            <ng-select [items]="activities" bindLabel="label" bindValue="value" formControlName="activity"
+              id="activity" appendTo="#activity" [clearable]="false" [class.ng-touched]="requiredSelect">
+            </ng-select>
+            <div *ngIf="submitted && f.activity.errors" class="error-feedback" id="activity-error">
+              <div *ngIf="f.activity.errors?.required">Please choose a favorite activity</div>
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+
+      <nb-card-footer>
+        <!-- submit -->
+        <button type="button" class="btn maxxis-btn btn-primary grey float-end" (click)="onCancelModal()">Cancel</button>
+        <button class="btn btn-primary maxxis-btn me-3 float-end" type="submit">
+          <span *ngIf="person.id > 0 else createPerson">Update</span>
+          <ng-template #createPerson>Create</ng-template>
+        </button>
+      </nb-card-footer>
+    </nb-card>
+  </form>
+</div>
+  

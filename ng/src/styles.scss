@@ -1,0 +1,72 @@
+@import 'themes';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import '~@nebular/theme/styles/globals';
+
+@import "~bootstrap/dist/css/bootstrap.css";
+
+@include nb-install() {
+  @include nb-theme-global();
+};
+.nb-theme-default [nbInput].size-medium {
+  font-weight: 400!important;
+}
+.form-control.is-invalid {
+  border-color: #dc3545!important;
+  background-image: none!important;
+}
+label.req:after, span.req:after {
+  content: '*';
+  margin-left: 3px;
+  color: #dc3545;
+}
+.ng-select { height: 40px!important; }
+.ng-select .ng-select-container {
+  height: 100%!important;
+  background-color: #f7f9fc!important;
+  border-color: #e4e9f2!important;
+}
+.ng-select.ng-invalid.ng-touched .ng-select-container {
+  border-color: #dc3545!important;
+}
+.ng-dropdown-panel, .dropdown, .dropup {
+  display: block!important;
+  z-index: 4000!important;
+}
+.error-feedback {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+nb-card.dialog-card {
+  max-height: 80vh;
+  max-width: 800px;
+  overflow-y: auto;
+}
+@media only screen and (max-width: 580px) {
+  .condense-table-view {
+    thead { display: none; }
+    tr {
+      display: block;
+      position: relative;
+      padding: 1.2em 0; }
+    tr:first-of-type { border-top: 1px solid #ccc; }
+    th, td { display: flex; align-items: baseline; border-top: none; }
+    th:before, td:before {
+      content: attr(data-label);
+      display: table-cell;
+      font-weight: bold;
+      padding: 0.2em 0.6em 0.2em 0;
+      text-align: right; }
+    td:last-child:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-bottom: 1px solid #ccc; }
+    .table th, .table td {
+        border-top: none;
+    }
+  }
+}

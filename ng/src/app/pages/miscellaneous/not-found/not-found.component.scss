@@ -1,0 +1,41 @@
+#error-bkgd {
+    background-image: url(^assets/images/field.jpg);
+    background-color: rgba(0,0,0,0.3);
+    background-blend-mode: overlay;
+
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    background-position: 50%;
+    background-size: cover;
+}
+.error-bgcontent {
+    margin: auto auto;
+    display: block;
+    width: 19rem;
+    -webkit-flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    color: #fff;
+}
+.error-bgcontent .title {
+    padding-top: 6rem;
+    margin-bottom: auto;
+    margin-top: auto;
+    color: white;
+    padding-bottom: 2rem;
+    font-size: 2rem;
+}
+  @media screen and (min-width: 576px) {
+  
+    .error-bgcontent .title {
+       // padding-top: 9rem;
+    }
+}
+  @media screen and (min-width: 768px) {}
+  @media screen and (min-width: 1400px) {
+    .error-bgcontent {
+    //  max-width: 1200px;
+    }
+}
+  
