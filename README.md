@@ -44,13 +44,17 @@ npm install
 
 ```bash
 
-# select the repo
+
+### Installation
+
+# change directory
 cd api
 
-# install dependencies
-npm install
+### Installation
+* `npm install` (installing dependencies)
 
-# run server
+### Developpement
 node server.js
+* in your browser [http://localhost:8080](http://localhost:8080) 
 
 ```
