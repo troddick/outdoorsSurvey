@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
-    NbActionsModule, NbCardModule, NbCheckboxModule, NbContextMenuModule,
+    NbActionsModule, NbAlertModule, NbCardModule, NbCheckboxModule, NbContextMenuModule,
     NbIconModule, NbInputModule, NbLayoutModule, NbMenuModule, NbDialogModule,
     NbRadioModule, NbSelectModule, NbSpinnerModule, NbThemeModule, NbToastrModule,
     NbTooltipModule
@@ -29,6 +29,7 @@ const BASE_MODULES = [
 
 const NB_MODULES = [
     NbActionsModule,
+    NbAlertModule,
     NbCardModule,
     NbCheckboxModule,
     NbContextMenuModule,
