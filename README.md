@@ -37,29 +37,24 @@ npm install
 ## Back-end
 
 ## Database Creation with PostgreSQL 
-> Use the SQL scripts in postgresql-sql
+> Use the SQL scripts in api/postgresql-sql
 - [x] create-database.sql
 - [x] create-tables.sql
 - [x] insert-data.sql
 
-
-## Database Creation with Node.js and PostgreSQL
-
-## PostgreSQL Password
-* Change settings in postgresql-express-batch/app/config
-* File config/db.config.json
-* dbUser: "postgres" 
-* dbPassword: "LovesN@ture"
-
+## API in Node.js
 ```bash
 
-# select the repo
+### Installation
+
+# change directory
 cd api
 
-# install the repo with npm
-npm install
+### Installation
+* `npm install` (installing dependencies)
 
-# create database and import JSON data
-npm run create
+### Developpement
+node server.js
+* in your browser [http://localhost:8080](http://localhost:8080) 
 
 ```
